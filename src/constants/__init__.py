@@ -3,6 +3,7 @@ from datetime import date
 
 # For MongoDB connection
 DATABASE_NAME = "Vehicle-Insurance"
+
 COLLECTION_NAME = "Vehicle-Insurance-Data"
 MONGODB_URL_KEY = "MONGODB_URL"  # Environment variable name
 MONGODB_URL = "mongodb+srv://0786sajidahmadmongo:415203Sajid@cluster0.rwcxtvp.mongodb.net/?appName=Cluster0"
