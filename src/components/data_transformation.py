@@ -98,9 +98,11 @@ class DataTransformation:
     def _drop_id_column(self, df):
         """Drop the 'id' column if it exists."""
         logging.info("Dropping 'id' column")
-        drop_col = self._schema_config['drop_columns']
-        if drop_col in df.columns:
-            df = df.drop(drop_col, axis=1)
+        drop_cols = self._schema_config['drop_columns']
+        # drop_cols is a list, so we need to drop each column individually
+        cols_to_drop = [col for col in drop_cols if col in df.columns]
+        if cols_to_drop:
+            df = df.drop(columns=cols_to_drop, axis=1)
         return df
 
     def initiate_data_transformation(self) -> DataTransformationArtifact:

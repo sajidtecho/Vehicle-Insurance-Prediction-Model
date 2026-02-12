@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Prediction - AI Powered</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">🚗</div>
+                    <div class="header-text">
+                        <h1>Vehicle Insurance Prediction System</h1>
+                        <p class="subtitle">AI-Powered Customer Interest Prediction</p>
+                    </div>
+                </div>
+                <div class="stats-badges">
+                    <div class="badge">
+                        <span class="badge-label">Accuracy</span>
+                        <span class="badge-value">92.20%</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-label">F1-Score</span>
+                        <span class="badge-value">93.16%</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-label">Trained On</span>
+                        <span class="badge-value">381K</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2>Customer Information</h2>
+                    <button type="button" class="btn-clear" id="clearForm" title="Clear form">🗑️ Clear</button>
+                </div>
+                <form id="predictionForm">
+                    
+                    <!-- Personal Information -->
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">-- Select Gender --</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="18" max="100" required placeholder="e.g., 35">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="driving_license">Driving License:</label>
+                        <select id="driving_license" name="driving_license" required>
+                            <option value="">-- Select --</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region_code">Region Code:</label>
+                        <input type="number" id="region_code" name="region_code" min="0" max="100" required placeholder="e.g., 28">
+                    </div>
+
+                    <!-- Insurance History -->
+                    <h3>Insurance History</h3>
+                    
+                    <div class="form-group">
+                        <label for="previously_insured">Previously Insured:</label>
+                        <select id="previously_insured" name="previously_insured" required>
+                            <option value="">-- Select --</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="annual_premium">Annual Premium (₹):</label>
+                        <input type="number" id="annual_premium" name="annual_premium" min="0" step="100" required placeholder="e.g., 30000">
+                    </div>
+
+                    <!-- Policy Information -->
+                    <h3>Policy Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="policy_sales_channel">Policy Sales Channel:</label>
+                        <input type="number" id="policy_sales_channel" name="policy_sales_channel" min="0" max="200" required placeholder="e.g., 152">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vintage">Vintage (Days):</label>
+                        <input type="number" id="vintage" name="vintage" min="0" max="400" required placeholder="e.g., 150">
+                        <small>Number of days the customer has been associated</small>
+                    </div>
+
+                    <!-- Vehicle Information -->
+                    <h3>Vehicle Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="vehicle_age">Vehicle Age:</label>
+                        <select id="vehicle_age" name="vehicle_age" required>
+                            <option value="">-- Select Vehicle Age --</option>
+                            <option value="lt_1">Less than 1 Year</option>
+                            <option value="1_2">1-2 Years</option>
+                            <option value="gt_2">More than 2 Years</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicle_damage">Vehicle Damage:</label>
+                        <select id="vehicle_damage" name="vehicle_damage" required>
+                            <option value="">-- Select --</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <span id="btnText">🔍 Predict Interest</span>
+                            <span id="btnLoader" class="loader" style="display:none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Quick Fill Buttons -->
+                <div class="quick-fill-section">
+                    <p class="quick-fill-title">Quick Fill Examples:</p>
+                    <div class="quick-fill-buttons">
+                        <button type="button" class="btn-quick-fill" data-profile="high-interest">📈 High Interest Profile</button>
+                        <button type="button" class="btn-quick-fill" data-profile="low-interest">📉 Low Interest Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display:none;">
+                <div id="resultContent"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2026 Vehicle Insurance Prediction System</p>
+                    <p class="footer-subtitle">Powered by Machine Learning • Random Forest Classifier</p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Model Version</span>
+                            <span class="stat-value">v1.0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Last Updated</span>
+                            <span class="stat-value">Feb 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

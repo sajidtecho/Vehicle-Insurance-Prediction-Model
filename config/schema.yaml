@@ -1,0 +1,49 @@
+columns:
+  - id
+  - Gender
+  - Age
+  - Driving_License
+  - Region_Code
+  - Previously_Insured
+  - Vehicle_Age
+  - Vehicle_Damage
+  - Annual_Premium
+  - Policy_Sales_Channel
+  - Vintage
+  - Response
+
+numerical_columns:
+  - id
+  - Age
+  - Driving_License
+  - Region_Code
+  - Previously_Insured
+  - Annual_Premium
+  - Policy_Sales_Channel
+  - Vintage
+  - Response
+
+categorical_columns:
+  - Gender
+  - Vehicle_Age
+  - Vehicle_Damage
+
+target_column: Response
+
+drop_columns:
+  - id
+
+# Features after transformation (with dummy variables)
+num_features:
+  - Age
+  - Driving_License
+  - Region_Code
+  - Previously_Insured
+  - Policy_Sales_Channel
+  - Vintage
+  - Vehicle_Age_lt_1_Year
+  - Vehicle_Age_gt_2_Years
+  - Vehicle_Damage_Yes
+
+mm_columns:
+  - Annual_Premium
