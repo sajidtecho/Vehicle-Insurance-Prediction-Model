@@ -1,0 +1,91 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables (use Vercel dashboard for env vars)
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+
+# Documentation (optional, comment out if you want to include)
+# *.md
+# docs/
+
+# Jupyter notebooks
+notebook/
+*.ipynb
+.ipynb_checkpoints/
+
+# Data files (if large, store externally)
+# notebook/data.csv
+
+# Unnecessary artifacts - keep only the trained model
+# Comment out the ones you want to keep
+artifact/02_03_2026_15_09_26/
+artifact/02_04_2026_09_54_42/
+artifact/02_04_2026_09_56_41/
+artifact/02_04_2026_09_57_09/
+artifact/02_04_2026_09_59_56/
+artifact/02_04_2026_10_00_29/
+artifact/02_04_2026_10_03_29/
+artifact/02_10_2026_14_44_19/
+artifact/02_10_2026_14_45_52/
+artifact/02_10_2026_14_46_59/
+artifact/02_10_2026_14_48_18/
+artifact/02_11_2026_23_52_49/
+
+# Training scripts (not needed for production)
+demo.py
+template.py
+calculate_accuracy.py
+system_check.py
+test_*.py
+test_*.ps1
+start_webapp.ps1
+
+# Keep only essential model folder
+# artifact/02_10_2026_14_49_37/model_trainer/trained_model/model.pkl will be included
+
+# Egg info
+*.egg-info/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp

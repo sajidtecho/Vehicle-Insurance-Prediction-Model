@@ -518,6 +518,57 @@ docker run -p 5000:5000 \
   vehicle-insurance-prediction
 ```
 
+## ☁️ Vercel Deployment (Serverless)
+
+Deploy to Vercel for free, serverless hosting with automatic scaling!
+
+### Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sajidtecho/Vehicle-Insurance-Prediction-Model)
+
+### Manual Deployment Steps
+
+1. **Fork/Clone the Repository**
+2. **Push to Your GitHub**
+3. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Import Project"
+   - Select your repository
+   - Click "Deploy"
+
+4. **Configure Build** (if needed)
+   - Install Command: `pip install -r requirements-vercel.txt`
+   - Build Command: (leave empty)
+   - Output Directory: (leave empty)
+
+5. **Access Your Live App**
+   - Your app will be live at `https://your-project.vercel.app`
+
+### Vercel CLI Deployment
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy to production
+vercel --prod
+```
+
+### Local Testing (Vercel Mode)
+
+```bash
+# Test Vercel-compatible version locally
+python vercel-dev.py
+
+# Or use Vercel dev server
+vercel dev
+```
+
+**📖 Complete Vercel Guide**: See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for detailed instructions, troubleshooting, and best practices.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
