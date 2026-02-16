@@ -1,8 +1,14 @@
 # Core dependencies for web application
-flask==2.3.0
+fastapi==0.104.1
+uvicorn==0.24.0
 pandas==2.0.0
 numpy==1.24.0
 scikit-learn==1.2.2
+
+# Authentication
+pyjwt==2.8.0
+bcrypt==4.1.1
+python-multipart==0.0.6
 
 # Required for model loading and prediction
 dill==0.3.6
@@ -26,9 +32,6 @@ seaborn
 boto3
 mypy-boto3-s3
 botocore
-fastapi
-python-multipart
-uvicorn
 
 # Local package installation
 -e .

@@ -1,22 +1,20 @@
 {
   "version": 2,
-  "name": "vehicle-insurance-prediction",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/static/(.*)",
-      "destination": "/static/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
     },
     {
       "source": "/(.*)",
-      "destination": "/api/index.py"
+      "destination": "/index.html"
     }
   ],
-  "env": {
-    "FLASK_ENV": "production"
-  },
-  "regions": ["iad1"],
   "functions": {
-    "api/index.py": {
+    "api/*.py": {
+      "runtime": "python3.9",
       "memory": 1024,
       "maxDuration": 10
     }
